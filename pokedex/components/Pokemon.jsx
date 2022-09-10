@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Pokemon = ({ pokemon, index }) => {
   const pokeIndex = ("000" + (index)).slice(-3);
-
+  // console.log(pokemon)
   return (
     <Link href={`/pokemon/${pokemon.name}`}>
       <a>
@@ -14,7 +14,7 @@ const Pokemon = ({ pokemon, index }) => {
             <h1>{pokemon.name}</h1>
           </div>
           <img className="w-max"
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`}
+            src={pokemon.image}
           />
         </div>
       </a>

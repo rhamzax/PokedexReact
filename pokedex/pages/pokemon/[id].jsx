@@ -21,6 +21,7 @@ export async function getServerSideProps({ params }) {
     `https://pokeapi.co/api/v2/pokemon/${params.id}`
   );
   const json = await response.json();
+  
 
   return {
     props: { pokemon: json },

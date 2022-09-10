@@ -1,15 +1,13 @@
 import Layout from "../components/Layout";
 import Pokemon from "../components/Pokemon";
 
-export default function Home({ initialPokemon }) {
-  // const [pokemon, setPokemon] = useState(initialPokemon)
-  // console.log(pokemon)
+export default function Home({ pokemons }) {
 
   return (
     <Layout title={"PokeDev"}>
       <div className="grid grid-cols-3 justify-center items-center sm:grid-cols-5 lg:grid-cols-9">
-        {initialPokemon.results.map((pokemon, index) => (
-          <Pokemon pokemon={pokemon} index={index + 1} />
+        {pokemons.map((pokemon, index) => (
+          <Pokemon pokemon={pokemon} index={index + 1} key={index} />
         ))}
       </div>
     </Layout>
@@ -18,12 +16,20 @@ export default function Home({ initialPokemon }) {
 
 
 export async function getStaticProps(context) {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=898&offset=0");
-  const initialPokemon = await response.json();
-
+  const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=5&offset=0");
+  const {results} = await response.json();
+  const pokemons = results.map((pokemon, index) => {
+    console.log(pokemon)
+    const pokeIndex = ("00" + (index + 1)).slice(-3);
+    const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeIndex}.png`
+    return{
+      ...pokemon,
+      image
+    }
+  })
   return {
     props: {
-      initialPokemon,
+      pokemons,
     },
   };
 }
