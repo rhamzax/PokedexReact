@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
+import Header from "./Header";
 
-const Layout = ({children, title}) => {
+const Layout = ({children, title, isPokemon}) => {
+
     return (
         <div>
             <Head>
@@ -11,14 +12,9 @@ const Layout = ({children, title}) => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-            {/* <header className="bg-slate-900 py-10 mb-10">
-                <Link href="/">
-                    <a>
-                        <h1 className="text-6xl text-center text-amber-400">{title}</h1>
-                    </a>
-                </Link>
-            </header> */}
-
+            
+            <Header isPokemon={isPokemon}/>
+            
             <main className="container mx-auto">
                 {children}
             </main>
