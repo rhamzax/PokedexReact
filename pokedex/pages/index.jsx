@@ -19,7 +19,6 @@ export async function getStaticProps(context) {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=5&offset=0");
   const {results} = await response.json();
   const pokemons = results.map((pokemon, index) => {
-    console.log(pokemon)
     const pokeIndex = ("00" + (index + 1)).slice(-3);
     const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeIndex}.png`
     return{
