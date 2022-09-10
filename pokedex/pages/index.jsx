@@ -1,6 +1,8 @@
 import Layout from "../components/Layout";
 import Pokemon from "../components/Pokemon";
 
+const pokemonLimit = 10;
+
 export default function Home({ pokemons }) {
 
   return (
@@ -16,7 +18,7 @@ export default function Home({ pokemons }) {
 
 
 export async function getStaticProps(context) {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=5&offset=0");
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${pokemonLimit}`);
   const {results} = await response.json();
   const pokemons = results.map((pokemon, index) => {
     const pokeIndex = ("00" + (index + 1)).slice(-3);

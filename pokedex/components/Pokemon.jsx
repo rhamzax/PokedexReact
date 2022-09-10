@@ -9,9 +9,9 @@ const Pokemon = ({ pokemon, index }) => {
     <Link href={`/pokemon/${pokemon.name}`}>
       <a>
         <div className="bg-gray-100 border rounded p-2 flex flex-col relative hover:bg-gray-200">
-          <div className="flex flex-col justify-between items-start uppercase font-semibold text-zinc-800-00 text-sm tracking-wide">
-            <h1>{pokeIndex}</h1>
-            <h1>{pokemon.name}</h1>
+          <div className="flex flex-col justify-between items-start uppercase font-semibold text-zinc-800-00  tracking-wide">
+            <h1 className="text-xl">{pokeIndex}</h1>
+            <h1 className="text-sm md:text-xs">{pokemon.name}</h1>
           </div>
           <img className="w-max"
             src={pokemon.image}
