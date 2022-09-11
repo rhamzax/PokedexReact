@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import Characteristics from "../../components/Characteristics";
+import Stats from "../../components/Stats";
 
 export default function Pokedex({ pokemon }) {
   const router = useRouter();
@@ -11,16 +12,21 @@ export default function Pokedex({ pokemon }) {
   return (
     <>
       <Layout title={"PokéDex"} isPokemon={true}>
-
-        <div>
-          <h1 className="uppercase text-2xl m-5">{pokemon.name}</h1>
+        <div className="flex flex-col justify-center items-center">
+            <div>
+              <h1 className="uppercase text-2xl m-5">{pokemon.name} <span>#{pokemon.id}</span></h1>
+            </div>
+            <div className="grid lg:grid-cols-3 justify-items-center items-center">
+              <Characteristics pokemon={pokemon} />
+              <img
+                className="w-full lg:w-72"
+                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeIndex}.png`}
+              />
+              <Stats pokemon={pokemon}/> 
+            </div>
+           
         </div>
-        
-        <Characteristics pokemon={pokemon}/>
-        <img
-          src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeIndex}.png`}
-        />
-        
+
       </Layout>
     </>
   );

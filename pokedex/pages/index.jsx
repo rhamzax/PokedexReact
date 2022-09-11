@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import Pokemon from "../components/Pokemon";
 
-const pokemonLimit = 100;
+const pokemonLimit = 898;
 
 export default function Home({ pokemons }) {
 

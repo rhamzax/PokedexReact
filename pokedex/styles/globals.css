@@ -5,6 +5,8 @@
 @layer base {
   body {
     @apply bg-gray-100
+  },
+  tr {
+    @apply my-10
   }
-
 }
