@@ -14,8 +14,8 @@ const Layout = ({children, title, isPokemon}) => {
 
             
             <Header isPokemon={isPokemon}/>
-            
-            <main className="container mx-auto">
+
+            <main className="container mx-auto flex flex-col justify-center items-center">
                 {children}
             </main>
 

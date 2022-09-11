@@ -1,12 +1,12 @@
 import Layout from "../components/Layout";
 import Pokemon from "../components/Pokemon";
 
-const pokemonLimit = 10;
+const pokemonLimit = 100;
 
 export default function Home({ pokemons }) {
 
   return (
-    <Layout title={"PokeDev"}>
+    <Layout title={"PokéDex"} isPokemon={false}>
       <div className="grid grid-cols-3 justify-center items-center sm:grid-cols-5 lg:grid-cols-9">
         {pokemons.map((pokemon, index) => (
           <Pokemon pokemon={pokemon} index={index + 1} key={index} />
