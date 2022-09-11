@@ -4,7 +4,7 @@ import Pokemon from "../components/Pokemon";
 const pokemonLimit = 898;
 
 export default function Home({ pokemons }) {
-
+  console.log()
   return (
     <Layout title={"PokéDex"} isPokemon={false}>
       <div className="grid grid-cols-3 justify-center items-center sm:grid-cols-5 lg:grid-cols-9">
