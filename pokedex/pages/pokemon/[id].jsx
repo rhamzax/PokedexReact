@@ -24,7 +24,8 @@ export default function Pokedex({ pokemon }) {
                 className="object-contain"
                 width={400}
                 height={400}
-                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeIndex}.png`}
+                priority
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
               />
               <Stats pokemon={pokemon}/> 
             </div>
