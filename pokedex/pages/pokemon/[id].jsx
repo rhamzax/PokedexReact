@@ -16,7 +16,7 @@ export default function Pokedex({ pokemon }) {
       <Layout title={"PokéDex"} isPokemon={true}>
         <div className="flex flex-col justify-center items-center">
             <div>
-              <h1 className="uppercase text-2xl m-5">{pokemon.name} <span>#{pokemon.id}</span></h1>
+              <h1 className="uppercase text-2xl m-5">{id} <span>#{pokemon.id}</span></h1>
             </div>
             <div className="grid lg:grid-cols-3 justify-items-center items-center">
               <Characteristics pokemon={pokemon} />
@@ -24,7 +24,7 @@ export default function Pokedex({ pokemon }) {
                 className="object-contain"
                 width={400}
                 height={400}
-                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeIndex}.png`}
+                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeIndex}.png`}
               />
               <Stats pokemon={pokemon}/> 
             </div>

@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Pokemon = ({ pokemon, index }) => {
-  const pokeIndex = ("000" + (index)).slice(-3);
-  // console.log(pokemon)
+  const pokeIndex = ("000" + index).slice(-3);
+  
   return (
     <Link href={`/pokemon/${pokemon.name}`}>
       <a>
@@ -13,10 +13,10 @@ const Pokemon = ({ pokemon, index }) => {
             <h1 className="text-xl">{pokeIndex}</h1>
             <h1 className="text-sm md:text-xs ">{pokemon.name}</h1>
           </div>
-          <Image 
-          className="object-contain"
-          width={400}
-          height={400}
+          <Image
+            className="object-contain"
+            width={400}
+            height={400}
             src={pokemon.image}
           />
         </div>
