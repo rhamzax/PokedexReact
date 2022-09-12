@@ -13,7 +13,10 @@ const Pokemon = ({ pokemon, index }) => {
             <h1 className="text-xl">{pokeIndex}</h1>
             <h1 className="text-sm md:text-xs ">{pokemon.name}</h1>
           </div>
-          <img className="w-max"
+          <Image 
+          className="object-contain"
+          width={400}
+          height={400}
             src={pokemon.image}
           />
         </div>

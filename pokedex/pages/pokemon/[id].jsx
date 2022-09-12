@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import Characteristics from "../../components/Characteristics";
 import Stats from "../../components/Stats";
+import Image from "next/image";
+
 
 export default function Pokedex({ pokemon }) {
   const router = useRouter();
@@ -18,8 +20,10 @@ export default function Pokedex({ pokemon }) {
             </div>
             <div className="grid lg:grid-cols-3 justify-items-center items-center">
               <Characteristics pokemon={pokemon} />
-              <img
-                className="w-full lg:w-72"
+              <Image
+                className="object-contain"
+                width={400}
+                height={400}
                 src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeIndex}.png`}
               />
               <Stats pokemon={pokemon}/> 
@@ -42,54 +46,3 @@ export async function getServerSideProps({ params }) {
     props: { pokemon: json },
   };
 }
-
-// `
-// <span class="close" id="left">&times;</span>
-// <h3 class="pokeName">${this.pokeName} #${this.index}</h3>
-// <div class="pokeImg">
-//     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.index}.png" alt="Pokemon" class="pokeImg">
-// </div>
-// <div class="pokeCharacteristic">
-//     <p class="CharacteristicTitle">Type</p>
-//     <div class="pokeTypes">
-//         ${this.createModalStatsContent(this.types)}
-//     </div>
-//     <p class="CharacteristicTitle">Height</p>
-//     <p>${this.height}m</p>
-//     <p class="CharacteristicTitle">Weight</p>
-//     <p>${this.weight}kg</p>
-//     <p class="CharacteristicTitle">Abilities</p>
-//     <div class="pokeAbilities">
-//         ${this.createModalStatsContent(this.abilities)}
-//     </div>
-// </div>
-// <p class="StatisticTitle">Stats</p>
-// <div class="stats">
-//     <p class="stat-title">Hp</p>
-//     <div class="animated-progress progress-blue">
-//         <span data-progress="45" style="width: ${this.hpWidth}%;">${this.hp}</span>
-//     </div>
-//     <p class="stat-title">Attack</p>
-//     <div class="animated-progress progress-blue">
-//         <span data-progress="45" style="width: ${this.attackWidth}%;">${this.attack}</span>
-//     </div>
-//     <p class="stat-title">Defense</p>
-//     <div class="animated-progress progress-blue">
-//         <span data-progress="45" style="width: ${this.defenseWidth}%;">${this.defense}</span>
-//     </div>
-//     <p class="stat-title">Sp. Attack</p>
-//     <div class="animated-progress progress-blue">
-//         <span data-progress="45" style="width: ${this.spAttackWidth}%;">${this.spAttack}</span>
-//     </div>
-//     <p class="stat-title">Sp. Defense</p>
-//     <div class="animated-progress progress-blue">
-//         <span data-progress="45" style="width: ${this.spDefenseWidth}%;">${this.spDefense}</span>
-//     </div>
-//     <p class="stat-title">Speed</p>
-//     <div class="animated-progress progress-blue">
-//         <span data-progress="45" style="width: ${this.speedWidth}%;">${this.speed}</span>
-//     </div>
-//     <p class="stat-title">Total</p>
-//     <p>${this.total}</p>
-// </div>
-// `
