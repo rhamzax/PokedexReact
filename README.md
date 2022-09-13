@@ -1,4 +1,3 @@
-![Hamza Amar]
 # Pokedex
 
 ### A Pokedex made using React, NextJS, TailwindCSS, and POKEAPI.
