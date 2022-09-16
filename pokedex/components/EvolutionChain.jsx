@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-
+import { getEvolutionSpecies } from "../util/getEvolution"
 import Evolution from "./Evolution"
 const EvolutionChain = ({ evolutionChainUrl }) => {
   const [evolution, setEvolution] = useState(null)
@@ -11,8 +11,8 @@ const EvolutionChain = ({ evolutionChainUrl }) => {
         .then((data) => setEvolution(data))
     }
     fetchEvolution()
-
   }, [])
+  
   if (evolution) {
     let evolutionList = getEvolutionSpecies(evolution)
 
