@@ -3,9 +3,11 @@ import Layout from "../../components/Layout";
 import Characteristics from "../../components/Characteristics";
 import Stats from "../../components/Stats";
 import Image from "next/image";
+import EvolutionChain from "../../components/EvolutionChain";
+import { useState, useEffect } from "react";
 
 
-export default function Pokedex({ pokemon }) {
+export default function Pokedex({ pokemon, species }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -29,6 +31,7 @@ export default function Pokedex({ pokemon }) {
               />
               <Stats pokemon={pokemon}/> 
             </div>
+            <EvolutionChain evolutionChainUrl={species.evolution_chain.url}/>
            
         </div>
 
@@ -43,7 +46,15 @@ export async function getServerSideProps({ params }) {
   );
   const json = await response.json();
 
+  const speciesresponse = await fetch(
+    `${json.species.url}`
+  );
+  const species = await speciesresponse.json();
+
   return {
-    props: { pokemon: json },
+    props: { 
+      pokemon: json,
+      species: species
+    },
   };
 }
