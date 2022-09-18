@@ -33,7 +33,7 @@ const EvolutionChain = ({ evolutionChainUrl }) => {
 
     return (
       <div className="grid justify-items-center">
-        <span className="text-xl bg-red-400 text-white px-4">Evolutions</span>
+        <span className="text-xl bg-red-400 text-white px-4 rounded-md">Evolutions</span>
         {items}
       </div>
     )
