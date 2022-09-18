@@ -11,6 +11,7 @@ const EvolutionChain = ({ evolutionChainUrl }) => {
         .then((data) => setEvolution(data))
     }
     fetchEvolution()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   if (evolution) {
     let evolutionList = getEvolutionSpecies(evolution)
