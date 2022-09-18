@@ -13,6 +13,7 @@ const EvolutionChain = ({ evolutionChainUrl }) => {
     fetchEvolution()
 
   }, [])
+<<<<<<< Updated upstream
   const getIndexFromURL = (url) => {
     url = url.slice(42)
     url = url.substring(0, url.length - 1)
@@ -64,6 +65,25 @@ const EvolutionChain = ({ evolutionChainUrl }) => {
     console.log(evolutionList)
     return (
       evolutionList.map(evolution => <Evolution name={evolution.species_name} min_level = {evolution.min_level} trigger_name={evolution.trigger_name} item={evolution.item} id={evolution.id}/>)
+=======
+  if (evolution) {
+    let evolutionList = getEvolutionSpecies(evolution)
+
+    let items = evolutionList.map(evolution => {
+      if (evolution.length) {
+        return (
+          <div className="grid grid-flow-col">
+            {evolution.map(item => <Evolution key={item.id} name={item.species_name} min_level={item.min_level} trigger_name={item.trigger_name} item={item.item} id={item.id} />)}
+          </div>
+        )
+      }
+      return <Evolution key={evolution.id} name={evolution.species_name} min_level={evolution.min_level} trigger_name={evolution.trigger_name} item={evolution.item} id={evolution.id} />
+    })
+
+
+    return (
+      <>{items}</>
+>>>>>>> Stashed changes
     )
   }
   else {
