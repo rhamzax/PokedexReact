@@ -9,6 +9,7 @@ const Evolution = ({name, min_level, trigger_name, item, id}) => {
             width={100}
             height={100}
             src={image}
+            alt="evolutions"
       />
     </div>
   )
